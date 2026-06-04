@@ -32,9 +32,18 @@ ipcMain.handle("select-and-update-file", async () => {
 
   const text = fs.readFileSync(filePath, "utf8");
 
-  const updatedText = text.replace(
+  const updatedText = text
+  .replace(
     /<StaffIdentifier>([0-9]|[1-3][0-9]|40)<\/StaffIdentifier>/g,
     "<StaffIdentifier>5773</StaffIdentifier><StaffEducationLevelCode>05</StaffEducationLevelCode>"
+  )
+  .replace(
+    /<SubcontractNumber>00000<\/SubcontractNumber>/g,
+    "<SubcontractNumber>ZTF13-19</SubcontractNumber>"
+  )
+  .replace(
+    /<ContractNumber>00000<\/ContractNumber>/g,
+    "<ContractNumber>IH611</ContractNumber>"
   );
 
   const parsedPath = path.parse(filePath);
