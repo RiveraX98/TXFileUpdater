@@ -50,7 +50,7 @@ ipcMain.handle("select-and-update-file", async () => {
 
   const newFilePath = path.join(
     parsedPath.dir,
-    `${parsedPath.name}.updated${parsedPath.ext}`
+    `${parsedPath.name}_updated${parsedPath.ext}`
   );
 
   fs.writeFileSync(newFilePath, updatedText, "utf8");
